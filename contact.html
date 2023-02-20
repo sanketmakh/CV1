@@ -8,8 +8,71 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    mobile no:12345678910
-    <br>address:chicago 
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <script>
+    let text;
+     function myFunction() {
+       
+        let x = document.getElementById("pass").value;
+        
+        
+
+        if (isNaN(x) || x.length < 1 || x.length > 10) {
+          text = "password not valid ,should be of length 1-10";
+          
+        }
+        else{
+            text="password val"
+        }
+        alert(text);
+
+     
+      }
+      function validateFileType() {
+        var inputElement = document.getElementById('file-upload');
+        var files = inputElement.files;
+        if(files.length==0){
+            alert("Please choose a file first...");
+            return false;
+        }else{
+            var filename = files[0].name;
+ 
+            /* getting file extenstion eg- .jpg,.png, etc */
+            var extension = filename.substr(filename.lastIndexOf("."));
+ 
+            /* define allowed file types */
+            var allowedExtensionsRegx = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+ 
+            /* testing extension with regular expression */
+            var isAllowed = allowedExtensionsRegx.test(extension);
+ 
+            if(isAllowed){
+                text="File type is valid for the upload";
+                alert(text);
+                /* file upload logic goes here... */
+
+            }else{
+                text="Invalid File Type"
+                alert(text);
+                return false;
+            }
+        }
+    }
+    
+    
+      </script>
+   
+    Mobile No:12345678910
+    <br>Address: Chicago 
     <hr>
     <br>
     <br>
@@ -20,10 +83,10 @@
             <input type ="text" name="your name">
             <br>
             password
-            <input type="password">
+            <input id="pass" type="password" required>
             <br>
             upload your photo
-            <input type="file" name="your photo">
+            <input id="file-upload" type="file" name="your photo"  required>
             <br>
             
             your email
@@ -37,7 +100,7 @@
             i agree
             <input type ="checkbox">
             <br>
-            <input type ="submit">
+            <input onClick="myFunction(); validateFileType()" type ="submit">
 
         </label>
     </form>
