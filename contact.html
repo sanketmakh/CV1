@@ -67,6 +67,29 @@
             }
         }
     }
+    function gender(){
+        let person = prompt("Please enter your gender", "Prefer Not to say");
+let text;
+if (person == null || person == "Prefer Not to say") {
+  text = "User prefered not to say about the gender";
+} else {
+  text = "The gender of the person is " + person ;
+
+}   
+console.log(text);
+    }
+    function mySubmit(){
+        var txt;
+        if (confirm("Please verify your details before proceeding.")) {
+            txt = "Thank you ,Your  details were submitted successfully ";
+  }     else {
+             txt = "You pressed Cancel!";
+             console.log("User cancelled the form");
+  }
+  alert(txt);
+    
+//   document.getElementById("demo").innerHTML = txt;
+    }
     
     
       </script>
@@ -100,7 +123,7 @@
             i agree
             <input type ="checkbox">
             <br>
-            <input onClick="myFunction(); validateFileType()" type ="submit">
+            <input onClick="myFunction(); validateFileType(); gender() ;mySubmit()" type ="submit">
 
         </label>
     </form>
